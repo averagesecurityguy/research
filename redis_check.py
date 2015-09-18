@@ -15,16 +15,16 @@ try:
     ver = i.get('redis_version')
     siz = db.dbsize()
    
-    print('[+] {0}:{1} - {2}({3})'.format(host, port, ver, siz))
+    print('[+] {0}:{1}:{2}'.format(host, ver, siz))
 
 except redis.exceptions.ResponseError as e:
-    print('[+] {0}:{1} - {2}'.format(host, port, e))
+    print('[+] {0}::{1}'.format(host, e))
 
 except redis.exceptions.ConnectionError:
-    print('[-] {0}:{1} - Connection Error'.format(host, port))
+    print('[-] {0}::Connection Error'.format(host))
 
 except redis.exceptions.TimeoutError:
-    print('[-] {0}:{1} - Timeout'.format(host, port))
+    print('[-] {0}::Timeout'.format(host))
 
 except redis.exceptions.InvalidResponse:
-    print('[-] {0}:{1} - Invalid Response'.format(host, port))
+    print('[-] {0}::Invalid Response'.format(host))
